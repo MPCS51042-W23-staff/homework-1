@@ -77,13 +77,12 @@ Open `problem2/grid.py`, implement the `get_sector` function according to the sp
 
 For this problem, we're going to deal with some real world data.
 
-`problem3/towing.csv` is a comma separated value (CSV) file [downloaded from the City of Chicago](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg) with real world data on vehicles towed in a 90 day period.
-
+`problem3/divvy.csv` is a comma separated value (CSV) file [downloaded from Divvy](https://ride.divvybikes.com/system-data) with a 5000 ride sample of real world data on bike rides for August 2022. The data has been cleaned and formatted for the purposes of this homework.
 **Note**: See [file-io.md](file-io.md) for details on how to open & read text from a file.
 
 We are going to implement two functions to generate reports from this data.
 
-`top_days(n)` should return an ordered list of the top `n` days of towing.
+`top_days(n)` should return an ordered list of the top `n` days of bike rides, ordered by `start_date`.
 
 Each item in the list should be a tuple of the date and the number of vehicles towed.
 
@@ -91,24 +90,25 @@ So `top_days(3)` might return:
 
 ```python
 [
-  ("09/17/2022", 128),
-  ("09/28/2022", 116),
-  ("09/24/2022", 94),
+  ('06/26/2022', 227),
+  ('06/18/2022', 218), 
+  ('06/11/2022', 207)
 ]
 ```
 
-And `day_summary` should return a similar list-of-tuples, except the ordering should be by date.
+And `day_summary` should return a similar list-of-tuples, except the ordering should be by `start_date`.
 
 ```python
 [
-  ("07/01/2022", 5),
-  ("07/02/2022", 5),
+  ('06/26/2022', 227),
+  ('06/18/2022', 218),
+  ('06/11/2022', 207),
   ... # truncated
-  ("09/29/2022", 94),
+  ('06/30/2022', 149),
 ]
 ```
 
-Open `problem3/towing.py` & implement `top_days` and `day_summary`.
+Open `problem3/divvy.py` & implement `top_days` and `day_summary`.
 
 Tip #1: You may want to implement other helper functions, as always, you are free to do so however you wish.
 
