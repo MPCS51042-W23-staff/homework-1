@@ -1,4 +1,4 @@
-from towing import top_days, day_summary
+from divvy import top_days, day_summary
 
 
 def test_day_summary_length():
