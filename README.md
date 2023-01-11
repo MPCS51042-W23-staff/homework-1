@@ -13,7 +13,7 @@ This environment already has Python 3.8 installed, as well as relevant packages 
 
 You are free to develop in a setup of your choosing, but due to the infinite possible variations stemming from different operating systems, versions of Python, etc. we will not be able to provide support for issues you may run into specific to your local environment.
 
-You may want to look at [Using VS Code and SSH](https://uchicago-cs.github.io/student-resource-guide/vscode/ssh.html) if you want to edit files on your machine and run them on the department Linux servers.
+You may want to look at [Using VS Code and SSH](https://uchicago-cs.github.io/student-resource-guide/vscode/ssh.html) if you want to edit files on your machine and run them on the department's Linux servers.
 
 ### Style Guide
 
@@ -40,12 +40,15 @@ You may find it useful to implement helper functions along the way,  you are alw
 
 Be sure to include docstrings for these helper functions.
 
+### Submitting the Homework
+After running the tests and verifying your work, you can submit the homework on [Gradescope](https://www.gradescope.com/courses/484505). Ensure that your code is clean and ready to be reviewed by the grader. You may submit as many times as you like before the deadline. 
+
 
 ## Problems
 
 ### Problem 1
 
-Open `problem1/find_twos.py`, implement the `find_twos` function according to the specifications provided.
+Open `problem1/find_twos.py`, and implement the `find_twos`` function according to the specifications provided.
 
 ### Problem 2
 
@@ -71,13 +74,13 @@ grid = [
 The item at `grid[0][1]` has a value of `"B"`, whereas
 `grid[1][0]` is `"D"`.
 
-Open `problem2/grid.py`, implement the `get_sector` function according to the specifications provided.
+Open `problem2/grid.py`, and implement the `get_sector`` function according to the specifications provided.
 
 ### Problem 3
 
-For this problem, we're going to deal with some real world data.
+For this problem, we're going to deal with some real-world data.
 
-`problem3/divvy.csv` is a comma separated value (CSV) file [downloaded from Divvy](https://ride.divvybikes.com/system-data) with a 5000 ride sample of real world data on bike rides for August 2022. The data has been cleaned and formatted for the purposes of this homework.
+`problem3/divvy.csv` is a comma-separated value (CSV) file [downloaded from Divvy](https://ride.divvybikes.com/system-data) with a 5000-ride sample of real-world data on bike rides for August 2022. The data has been cleaned and formatted for this homework.
 **Note**: See [file-io.md](file-io.md) for details on how to open & read text from a file.
 
 We are going to implement two functions to generate reports from this data.
@@ -96,7 +99,7 @@ So `top_days(3)` might return:
 ]
 ```
 
-And `day_summary` should return a similar list-of-tuples, except the ordering should be by `start_date`.
+And `day_summary` should return a similar list of tuples, except the ordering should be by `start_date`.
 
 ```python
 [
@@ -124,22 +127,22 @@ date_obj = datetime.datetime.strptime(date_str, "%m/%d/%Y")
 
 ### Problem 4
 
-Nowadays we take word completion for granted. Our phones, text editors, and word processing programs all give us suggestions for how to complete words as we type based on the letters typed so far. These hints help speed up user input and eliminate common typographical mistakes (but can also be frustrating when the tool insists on completing a word that you don’t want completed).
+Nowadays we take word completion for granted. Our phones, text editors, and word processing programs all give us suggestions for how to complete words as we type based on the letters typed so far. These hints help speed up user input and eliminate common typographical mistakes (but can also be frustrating when the tool insists on completing a word that you don’t want to be completed).
 
-You will implement two functions that such tools might use to provide command completion. The first function, `fill_completions`, will construct a dictionary designed to permit easy calculation of possible word completions. A problem for any such function is what vocabulary, or set of words, to allow completion on. Because the vocabulary you want may depend on the domain a tool is used in, you will provide `fill_completions` with a representative sample of documents from which it will build the completions dictionary. The second function, `find_completions`, will return the set of possible completions for a start of any word in the vocabulary (or the empty set if there are none). In addition to these two functions, you will implement a simple main program to use for testing your functions.
+You will implement two functions that such tools might use to provide command completion. The first function, `fill_completions`, will construct a dictionary designed to permit easy calculation of possible word completions. A problem for any such function is what vocabulary, or set of words, to allow completion on. Because the vocabulary you want may depend on the domain a tool is used in, you will provide `fill_completions` with a representative sample of documents from which it will build the completions dictionary. The second function, `find_completions`, will return the set of possible completions for the start of any word in the vocabulary (or the empty set if there are none). In addition to these two functions, you will implement a simple main program to use for testing your functions.
 
 #### Specifications
 
-`fill_completions(fd)` takes an opened file as input, and returns a dictionary.
+`fill_completions(fd)` takes an opened file as input and returns a dictionary.
 
 The function loops through each word in a file and builds a dictionary:
 
 - The keys of the dictionary are tuples of the form `(n, letter)` where `n` is an integer and `letter` is a lowercase letter `a-z`.
-- The value associated with key `(n, letter)` is the set of words that contain `letter` at position `n`.  All words should be converted to lower case for simplicity.  If the file contained the word `Python`, then `d[0, "p"]`, `d[1, "y"]`, `d[2, "t"]`, `d[4, "h"]`, `d[5, "o"]`, and `d[6, "n"]` would all contain the word `python`.
+- The value associated with the key `(n, letter)` is the set of words that contain `letter` at position `n`.  All words should be converted to lowercase for simplicity.  If the file contained the word `Python`, then `d[0, "p"]`, `d[1, "y"]`, `d[2, "t"]`, `d[4, "h"]`, `d[5, "o"]`, and `d[6, "n"]` would all contain the word `python`.
 - Words must be stripped of leading & trailing punctuation.
 - Words containing non-alphabetic characters are ignored, as are words of length 1.
 
-`find_completions(prefix, comp_dict)` takes a prefix string and `comp_dict` (the result of `fill_completions`) as input.  It returns a the set of strings that complete the prefix. If no words match, it returns an empty set.
+`find_completions(prefix, comp_dict)` takes a prefix string and `comp_dict` (the result of `fill_completions`) as input.  It returns a set of strings that complete the prefix. If no words match, it returns an empty set.
 
 `main()` is a function used to test your code. It should:
 
@@ -178,4 +181,4 @@ Enter prefix: quit
 
 **Note: the output order does not matter for this assignment.**
 
-Write your solution in `problem4/problem4.py`.  This file does not exist yet and you will need to create it, remember to follow all style guidlines.
+Write your solution in `problem4/problem4.py`.  This file does not exist yet and you will need to create it, remember to follow all style guidelines.
