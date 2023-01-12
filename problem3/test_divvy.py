@@ -7,20 +7,20 @@ def test_day_summary_length():
 
 def test_day_summary_ordering():
     summary = day_summary()
-    assert summary[0][0] == "06/26/2022"
-    assert summary[1][0] == "06/18/2022"
-    assert summary[20][0] == "06/01/2022"
-    assert summary[-2][0] == "06/08/2022"
-    assert summary[-1][0] == "06/06/2022"
+    assert summary[0][0] == "06/01/2022"
+    assert summary[1][0] == "06/02/2022"
+    assert summary[20][0] == "06/21/2022"
+    assert summary[-2][0] == "06/29/2022"
+    assert summary[-1][0] == "06/30/2022"
 
 
 def test_say_summary_values():
     summary = day_summary()
-    assert summary[0][1] == 227
-    assert summary[1][1] == 218
-    assert summary[20][1] == 155
-    assert summary[-2][1] == 100
-    assert summary[-1][1] == 84
+    assert summary[0][1] == 155
+    assert summary[1][1] == 146
+    assert summary[20][1] == 159
+    assert summary[-2][1] == 160
+    assert summary[-1][1] == 149
 
 
 def test_top_n3():
