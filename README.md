@@ -103,9 +103,8 @@ And `day_summary` should return a similar list of tuples, except the ordering sh
 
 ```python
 [
-  ('06/26/2022', 227),
-  ('06/18/2022', 218),
-  ('06/11/2022', 207),
+  ('06/01/2022', 155),
+  ('06/02/2022', 146),
   ... # truncated
   ('06/30/2022', 149),
 ]
