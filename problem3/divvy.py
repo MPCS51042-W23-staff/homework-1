@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def top_days(n):
     """
     Returns the top days that divvy bike rides were started.
@@ -16,6 +19,22 @@ def top_days(n):
               ('06/11/2022', 207),
             ]
     """
+    data = load_data()
+    counter = dict()
+    for i in data.index:
+        start_date = data['start_date'][i]
+        if start_date in counter:
+            counter[start_date] += 1
+        else:
+            counter[start_date] = 1
+
+    top_n_dates = list(dict(sorted(counter.items(), key=lambda item: item[1], reverse=True)).keys())[:n]
+
+    list_tuples = list()
+    for d in top_n_dates:
+        list_tuples.append((d, counter[d]))
+
+    return list_tuples
 
 
 def day_summary():
@@ -34,3 +53,24 @@ def day_summary():
               ('06/30/2022', 149),
             ]
     """
+    data = load_data()
+    counter = dict()
+    for i in data.index:
+        start_date = data['start_date'][i]
+        if start_date in counter:
+            counter[start_date] += 1
+        else:
+            counter[start_date] = 1
+
+    top_n_dates = list(dict(sorted(counter.items(), key=lambda item: item[1], reverse=True)).keys())
+
+    list_tuples = list()
+    for d in top_n_dates:
+        list_tuples.append((d, counter[d]))
+
+    return list_tuples
+
+
+def load_data():
+    df = pd.read_csv('problem3/divvy.csv')
+    return df
