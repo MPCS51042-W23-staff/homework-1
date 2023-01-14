@@ -85,9 +85,9 @@ For this problem, we're going to deal with some real-world data.
 
 We are going to implement two functions to generate reports from this data.
 
-`top_days(n)` should return an ordered list of the top `n` days of bike rides, ordered by `start_date`.
+`top_days(n)` should return an ordered list of the top `n` days of bike rides, ordered by number of rides.
 
-Each item in the list should be a tuple of the date and the number of vehicles towed.
+Each item in the list should be a tuple of the date and the number of rides.
 
 So `top_days(3)` might return:
 
